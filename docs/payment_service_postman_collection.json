@@ -1,0 +1,85 @@
+{
+  "info": {
+    "name": "Payment Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Collection for testing the endpoints of the payment microservice"
+  },
+  "item": [
+    {
+      "name": "Create Payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"concept\": \"Initial Payment\",\n  \"quantity\": 1,\n  \"payer\": \"Carlos\",\n  \"receiver\": \"Bank\",\n  \"amount\": 299.99\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "payments"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Payment by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/v1/payments/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "payments",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Change Payment Status",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:8080/api/v1/payments/1/status?status=COMPLETED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "payments",
+            "1",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "COMPLETED"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
